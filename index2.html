@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/index2.css" rel="stylesheet"/>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="ku.js" ></script>
+		<script type="text/javascript" src="vue.js" ></script>
+		<script>
+			$(function(){
+				
+				console.log(loadTxt(jingrong))
+				var vm=new Vue({
+						el:".center",
+						data:{
+							jingrong:loadTxt(jingrong),
+							congye:loadTxt(congye),
+							caihui:loadTxt(caihui),
+							zhongjijingjishi:loadTxt(zhongjijingjishi)
+						}
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		<img src="imgs/logo.png" class="logo" />
+		<div class="center">
+			<div class="topChange">
+				<span class="ttt">推荐：</span>
+				<ul class="titleMenu">
+					<li class="active">金融</li>
+					<li>财会</li>
+					<li>从业</li>
+					<li>中级经济师</li>
+				</ul>
+				<div class="phone">
+					<img src="imgs/phone.jpg"  style="float:left;"/>
+					<span>&nbsp;立即咨询：400-700-9596</span>
+				</div>
+			</div>
+		<!--点击标题切换下面的主题-->
+			<!--金融-->
+			<div class="container"  id="container1">
+				<!--每一个商品框-->
+				<div class="boxBox" v-for="item in jingrong">
+				  <div class="oneBox">
+					<img v-bind:src="item.imgleftsrc" class="oneBoxLeftImg" />
+					<div class="Message">
+						<a href="###" class="oneBoxTittle">{{item.title}}</a>
+						<div class="detail">
+							<a href="###">{{item.titleA}}</a>
+							<span>{{item.titleB}}</span>
+						</div>
+						<div class="price">
+							<span>特惠价：</span>
+							<span>￥</span>
+							<span>{{item.price}}</span>
+							<span>原价：</span>
+							<span>{{item.priceold}}</span>
+						</div>
+						<span class="xiangqing">活动详情</span>
+						<div class="timeAndDetail">{{item.detail}}</div>
+					</div>
+					<img v-bind:src="item.imgRightSrc" class="boxTopRight"/>
+					<a href="###" type="button" class="toSeeButton"/>立即查看</a>
+				   </div>
+				</div>
+			</div>
+			<!--财会-->
+			<div class="container" id="container2">
+				<!--每一个商品框-->
+				<div class="boxBox" v-for="item in caihui">
+				  <div class="oneBox">
+					<img v-bind:src="item.imgleftsrc" class="oneBoxLeftImg" />
+					<div class="Message">
+						<a href="###" class="oneBoxTittle">{{item.title}}</a>
+						<div class="detail">
+							<a href="###">{{item.titleA}}</a>
+							<span>{{item.titleB}}</span>
+						</div>
+						<div class="price">
+							<span>特惠价：</span>
+							<span>￥</span>
+							<span>{{item.price}}</span>
+							<span>原价：</span>
+							<span>{{item.priceold}}</span>
+						</div>
+						<span class="xiangqing">活动详情</span>
+						<div class="timeAndDetail">{{item.detail}}</div>
+					</div>
+					<img v-bind:src="item.imgRightSrc" class="boxTopRight"/>
+					<a href="###" type="button" class="toSeeButton"/>立即查看</a>
+				   </div>
+				</div>
+			</div>
+			
+			<!--从业-->
+			<div class="container" id="container3">
+				<!--每一个商品框-->
+				<div class="boxBox" v-for="item in congye">
+				  <div class="oneBox">
+					<img v-bind:src="item.imgleftsrc" class="oneBoxLeftImg" />
+					<div class="Message">
+						<a href="###" class="oneBoxTittle">{{item.title}}</a>
+						<div class="detail">
+							<a href="###">{{item.titleA}}</a>
+							<span>{{item.titleB}}</span>
+						</div>
+						<div class="price">
+							<span>特惠价：</span>
+							<span>￥</span>
+							<span>{{item.price}}</span>
+							<span>原价：</span>
+							<span>{{item.priceold}}</span>
+						</div>
+						<span class="xiangqing">活动详情</span>
+						<div class="timeAndDetail">{{item.detail}}</div>
+					</div>
+					<img v-bind:src="item.imgRightSrc" class="boxTopRight"/>
+					<a href="###" type="button" class="toSeeButton"/>立即查看</a>
+				   </div>
+				</div>
+			</div>
+			
+			<!--中级经济师-->
+			<div class="container" id="container4">
+				<!--每一个商品框-->
+				<div class="boxBox" v-for="item in zhongjijingjishi">
+				  <div class="oneBox">
+					<img v-bind:src="item.imgleftsrc" class="oneBoxLeftImg" />
+					<div class="Message">
+						<a href="###" class="oneBoxTittle">{{item.title}}</a>
+						<div class="detail">
+							<a href="###">{{item.titleA}}</a>
+							<span>{{item.titleB}}</span>
+						</div>
+						<div class="price">
+							<span>特惠价：</span>
+							<span>￥</span>
+							<span>{{item.price}}</span>
+							<span>原价：</span>
+							<span>{{item.priceold}}</span>
+						</div>
+						<span class="xiangqing">活动详情</span>
+						<div class="timeAndDetail">{{item.detail}}</div>
+					</div>
+					<img v-bind:src="item.imgRightSrc" class="boxTopRight"/>
+					<a href="###" type="button" class="toSeeButton"/>立即查看</a>
+				   </div>
+				</div>
+			</div>
+		</div>
+		
+			
+	</body>
+	<script>
+	$(function(){
+		$(".container:eq(0)").css("display","block");
+		$(".titleMenu li").click(function(){
+			var index=$(this).index();
+			$(".container:eq("+index+")").css("display","block").siblings(".container").css("display","none");
+			$(this).addClass("active").siblings("li").removeClass("active");
+		})
+		
+		
+		
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//		var index=$(".LightCtrol").length;
+//		for(var i=0;i<index;i++){
+//			$(".LightCtrol:eq("+i+") input:eq(0)").val();
+//			$(".LightCtrol:eq("+i+") input:eq(1)").val();
+//			$(".LightCtrol:eq("+i+") input:eq(2)").val();
+//			
+//		}
+//		
+//		for(var i=0;i<index;i++){
+//			var index2=$(".dengkongqishu:eq("+i+") .lightLight").length;
+//			for(var j=0;j<index2;j++){
+//				$(".dengkongqishu:eq("+i+") .lightLight:eq("+j+") input:eq(0)").val();
+//				$(".dengkongqishu:eq("+i+") .lightLight:eq("+j+") input:eq(1)").val();
+//				$(".dengkongqishu:eq("+i+") .lightLight:eq("+j+") input:eq(2)").val();
+//				
+//			}
+//		}
+		
+		
+	</script>
+</html>
